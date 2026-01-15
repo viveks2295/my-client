@@ -59,7 +59,7 @@ body {
     }
   }
   
-  @media (max-width: 414px) {
+  @media (max-width: 768px) {
     #home {
       background-size: contain; /* on phones, fit the full image */
       background-color: #fff;   /* fallback color behind image */
