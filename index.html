@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +11,14 @@
     rel="stylesheet"
   />
 </head>
-<body style="font-family: 'Poppins', sans-serif;">
-  
-  <!-- NAVBAR -->
+
+<body style="font-family: 'Poppins', sans-serif; padding-top: 80px;">
+
+<!-- NAVBAR -->
 <nav class="fixed w-full top-0 left-0 bg-pink-200 shadow z-50">
   <div class="container mx-auto flex justify-between items-center py-4 px-4 md:px-0">
-    <h1 class="text-2xl font-bold text-pink-600">Glitter Diary</h1>
-    <ul class="hidden md:flex space-x-3">
+    <h1 class="text-2xl font-bold left-0 text-pink-600">Glitter Diary</h1>
+    <ul class="hidden md:flex space-x-2">
       <li><a href="#home" class="p-3 rounded-full bg-pink-100 shadow-sm font-bold">Home</a></li>
       <li><a href="#about" class="p-3 rounded-full bg-pink-100 shadow-sm font-bold">About</a></li>
       <li><a href="#Gallery" class="p-3 rounded-full bg-pink-100 shadow-sm font-bold">Gallery</a></li>
@@ -28,31 +28,24 @@
     <button id="menu-btn" class="md:hidden text-3xl text-pink-600 focus:outline-none">☰</button>
   </div>
   <ul id="mobile-menu" class="hidden flex-col space-y-2 bg-pink-100 px-6 py-4 md:hidden">
-    <li><a href="#home" class="p-4 rounded-full bg-pink-100 shadow-sm block text-center font-bold">Home</a></li>
-    <li><a href="#about" class="p-4 rounded-full bg-pink-100 shadow-sm block text-center font-bold">About</a></li>
-    <li><a href="#Gallery" class="p-4 rounded-full bg-pink-100 shadow-sm block text-center font-bold">Gallery</a></li>
-    <li><a href="#services" class="p-4 rounded-full bg-pink-100 shadow-sm block text-center font-bold">Services</a></li>
-    <li><a href="#contact" class="p-4 rounded-full bg-pink-100 shadow-sm block text-center font-bold">Contact</a></li>
+    <li><a href="#home" class="p-4 block text-center font-bold">Home</a></li>
+    <li><a href="#about" class="p-4 block text-center font-bold">About</a></li>
+    <li><a href="#Gallery" class="p-4 block text-center font-bold">Gallery</a></li>
+    <li><a href="#services" class="p-4 block text-center font-bold">Services</a></li>
+    <li><a href="#contact" class="p-4 block text-center font-bold">Contact</a></li>
   </ul>
 </nav>
 
-<section id="home" class="hero min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
-  
-  <img src="assets/images/Backgroung.jpg" alt="Background"
-       class="responsive-bg absolute inset-0 w-full h-full object-cover -z-10">
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-white bg-opacity-10"></div>
-
-  <!-- Button -->
+<section id="home" class="hero h-screen flex flex-col items-center justify-center text-center px-6 relative">
+  <img src="assets/images/Backgroung.jpg" class="absolute inset-0 w-full h-full object-cover -z-10">
+  <div class="absolute inset-0 bg-white bg-opacity-10 pointer-events-none"></div>
   <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10">
-    <a href="#contact" 
-       class="inline-block bg-pink-600 hover:bg-pink-700 text-white px-10 py-4 text-lg md:text-xl font-semibold rounded-xl shadow-lg transition">
+    <a href="#contact" class="bg-pink-600 hover:bg-pink-700 text-white px-10 py-4 text-lg rounded-xl shadow-lg">
       Book Now
     </a>
   </div>
 </section>
-
 
 <section id="about" class="py-20 bg-pink-200 "> 
   <div class="max-w-7xl mx-auto px-10 flex flex-col md:flex-row items-center"> 
@@ -127,10 +120,10 @@
   </section>
 
 <!-- VIDEOS SECTION -->
-<section id="videos" class="py-20 bg-pink-200 relative">
+<section id="Videos" class="py-20 bg-pink-200 relative">
   <h2 class="text-4xl font-bold text-black text-center mb-10">Watch Our Work</h2>
 
-  <div class="overflow-x-auto px-6 scroll-container flex space-x-6">
+  <div class="overflow-x-auto px-4 scroll-container flex space-x-2">
     <!-- Video 1 -->
     <div class="relative group">
       <button onclick="openVideoModal('assets/Gallery/videos/1.mp4')" class="relative">
@@ -456,14 +449,8 @@
   </div> 
 </section> 
 
-
-<footer class="bg-pink-500 text-white py-6 text-center"> 
-  <p>&copy; 2025 Glitter Diary. All rights reserved.</p> 
-</footer>
-
-
 <script>
-     // Mobile Menu
+    // Mobile Menu
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
   
@@ -479,6 +466,8 @@
         mobileMenu.classList.add("hidden");
       });
     });
+  
+
   // Gallery Modal
   function openModal(src) {
     const modal = document.getElementById("imageModal");
@@ -520,7 +509,36 @@
   document.getElementById("videoModal").addEventListener("click", (e) => {
     if (e.target.id === "videoModal") closeVideoModal();
   });
-
 </script>
-</body> 
+
+
+ <!-- BOOKING SECTION -->
+<section id="booking" class="py-20 px-6 bg-pink-200">
+  <div class="max-w-3xl mx-auto bg-pink-100 p-8 rounded-2xl shadow-lg">
+    <h2 class="text-4xl font-bold text-center text-pink-600 mb-8">Book Your Appointment</h2>
+
+    <form id="bookingForm" class="space-y-4">
+      <input id="name" type="text" placeholder="Your Name" required class="w-full p-3 rounded-xl border">
+      <input id="mobile" type="tel" placeholder="10-digit Mobile Number" required class="w-full p-3 rounded-xl border"  maxlength="10" pattern="[6-9]{1}[0-9]{9}"  inputmode="numeric">
+      <input id="date" type="date" required class="w-full p-3 rounded-xl border">
+      <input id="product" type="text" placeholder="Service / Product" required class="w-full p-3 rounded-xl border">
+      <button type="submit" class="w-full bg-pink-600 text-white py-3 rounded-xl">Booking Now</button>
+    </form>
+
+    <div id="bookingResult" class="mt-8 hidden bg-white p-6 rounded-xl shadow">
+      <p><b>Name:</b> <span id="rName"></span></p>
+      <p><b>Mobile:</b> <span id="rMobile"></span></p>
+      <p><b>Date:</b> <span id="rDate"></span></p>
+      <p><b>Service:</b> <span id="rProduct"></span></p>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-pink-500 text-white py-6 text-center">
+  <p>&copy; 2025 Glitter Diary. All rights reserved.</p>
+</footer>
+
+
+
+</body>
 </html>
